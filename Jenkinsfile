@@ -30,9 +30,10 @@ pipeline {
 
 	stage('Push') {
             steps {
-		sh 'rm -f ~/.dockercfg ~/.docker/config.json || true'
+		
                 script{
-                    docker.withRegistry('https://095531701288.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:AKIARMPRCCQUMHUHNIUM') {
+		sh 'rm -f ~/.dockercfg ~/.docker/config.json || true'
+                    docker.withRegistry('https://095531701288.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:aws_credentials') {
                     app.push("latest")
                     }
                 }
