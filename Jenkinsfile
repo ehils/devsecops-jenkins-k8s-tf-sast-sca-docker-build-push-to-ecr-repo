@@ -32,7 +32,7 @@ pipeline {
             steps {
 		sh 'rm -f ~/.dockercfg ~/.docker/config.json || true'
                 script{
-                    docker.withRegistry('https://095531701288.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:aws-credentials') {
+                    docker.withRegistry('https://095531701288.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:AKIARMPRCCQUMHUHNIUM') {
                     app.push("latest")
                     }
                 }
