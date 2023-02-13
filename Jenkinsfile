@@ -38,6 +38,7 @@ pipeline {
                     }
                 }
             }
+	}
     	stage('Kubernetes Deployment of ASG Bugg Web Application') {
 	   steps {
 	      withKubeConfig([credentialsId: 'kubelogin']) {
@@ -45,8 +46,6 @@ pipeline {
 		  sh ('kubectl apply -f deployment.yaml --namespace=devsecops')
 		}
 	      }
-   	}
-	}
-	    
+   	}    
   }
 }
